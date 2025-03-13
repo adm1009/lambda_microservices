@@ -5,6 +5,7 @@ phases:
     commands:
       - npm install -g serverless@3
       - npm install
+      - npm install serverless-offline
   build:
     commands:
       - serverless deploy
