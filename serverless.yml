@@ -4,6 +4,8 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-east-1
+  deploymentBucket:
+    name: Lambda_Microservices
   httpApi:
     cors: true
 
@@ -12,16 +14,16 @@ functions:
     handler: lambdas/code/user/index.handler
     events:
       - httpApi:
-          path: user/create
+          path: /user/create
           method: post
       - httpApi:
-          path: user/get
+          path: /user/get
           method: get
       - httpApi:
-          path: user/update
+          path: /user/update
           method: put
       - httpApi:
-          path: user/delete
+          path: /user/delete
           method: delete
 
 plugins:
