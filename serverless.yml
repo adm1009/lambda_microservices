@@ -26,3 +26,9 @@ functions:
 
 plugins:
   - serverless-offline
+
+resources:
+  Resources:
+    ServerlessDeploymentBucket:
+      Type: AWS::S3::Bucket
+      DeletionPolicy: Delete  
