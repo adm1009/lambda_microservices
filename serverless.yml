@@ -1,30 +1,28 @@
-service: user-api
+service: user-service
+
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   region: us-east-1
+  httpApi:
+    cors: true
+
 functions:
-  createUser:
-    handler: lambdas/createUser.handler
+  user:
+    handler: lambdas/code/user/index.handler
     events:
-      - http:
+      - httpApi:
           path: user/create
           method: post
-  getUser:
-    handler: lambdas/getUser.handler
-    events:
-      - http:
+      - httpApi:
           path: user/get
           method: get
-  updateUser:
-    handler: lambdas/updateUser.handler
-    events:
-      - http:
+      - httpApi:
           path: user/update
           method: put
-  deleteUser:
-    handler: lambdas/deleteUser.handler
-    events:
-      - http:
+      - httpApi:
           path: user/delete
           method: delete
+
+plugins:
+  - serverless-offline
