@@ -8,7 +8,6 @@ phases:
       - npm install serverless-offline
   build:
     commands:
-      - serverless remove
       - serverless deploy
 artifacts:
   files:
