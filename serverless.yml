@@ -1,0 +1,30 @@
+service: user-api
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-1
+functions:
+  createUser:
+    handler: lambdas/createUser.handler
+    events:
+      - http:
+          path: user/create
+          method: post
+  getUser:
+    handler: lambdas/getUser.handler
+    events:
+      - http:
+          path: user/get
+          method: get
+  updateUser:
+    handler: lambdas/updateUser.handler
+    events:
+      - http:
+          path: user/update
+          method: put
+  deleteUser:
+    handler: lambdas/deleteUser.handler
+    events:
+      - http:
+          path: user/delete
+          method: delete
